@@ -1,0 +1,5 @@
+*.o
+driver
+test
+*.dSYM
+*.cpp
