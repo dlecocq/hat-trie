@@ -1,15 +1,15 @@
 CPP	 = g++
-CPPOPTS = -O3 -Wall -g -Iinclude
+CPPOPTS = -O9 -Wall -Iinclude -I/Users/dan/playground/hat-trie-chris/hat-trie/src
 
-all: driver
+all: test bench
 
-driver: include/*.hpp src/driver.cpp
-	$(CPP) $(CPPOPTS) src/driver.cpp -o build/driver
+bench: include/*.hpp bench.cpp
+	$(CPP) $(CPPOPTS) bench.cpp -o bench
 
 clean:
-	rm -rdf *.o driver *.dSYM
+	rm -rdf *.o test bench *.dSYM
 
 test: include/*.hpp test.cpp
 	$(CPP) $(CPPOPTS) -Ideps/Catch/single_include test.cpp -o test
 	# Now invoke
-	./test
+	#./test
