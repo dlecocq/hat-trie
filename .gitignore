@@ -3,3 +3,5 @@ driver
 test
 *.dSYM
 *.cpp
+bench
+data/*
