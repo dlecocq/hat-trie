@@ -50,3 +50,14 @@ both `g++ 4.2.2` and `clang 2.1` on a 2011-ish MacBook Pro. I encourage you to
 run `make bench` yourself to compare this implementation of `array-hash`, 
 `std::map` (for fun) and `std::tr1::unordered_map`.
 
+Hashes
+======
+One of my initial inclinations to try to improve upon the performance to edge
+out `std::tr1::unordered_map` was to try different hashes. I had initially used
+my personal favorite 
+[superfasthash](http://www.azillionmonkeys.com/qed/hash.html), but also tried 
+out [crapwow](http://www.team5150.com/~andrew/noncryptohashzoo/CrapWow.html)
+which claims to be more performant than superfast. The `array-hash` class here
+accepts hash functor as a template argument, and defaults to crapwow.
+
+In terms of performance, they were essentially indistinguishable in these tests
