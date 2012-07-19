@@ -16,8 +16,13 @@ bench: include/*.hpp bench.cpp data/distinct_1
 	$(CPP) $(CPPOPTS) bench.cpp -o bench
 	./bench ./data/distinct_1 | tee -a bench.dat
 
+bench.dat: bench
+
+plot: bench.dat
+	gnuplot bench.gnuplot
+
 test: include/*.hpp test.cpp
 	$(CPP) $(CPPOPTS) -Ideps/Catch/single_include test.cpp -o test
 
 clean:
-	rm -rdf *.o test bench *.dSYM
+	rm -rdf *.o test bench bench.dat *.png *.dSYM

@@ -5,3 +5,5 @@ test
 *.cpp
 bench
 data/*
+*.png
+*.dat
